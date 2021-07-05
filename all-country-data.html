@@ -1,0 +1,112 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid 19 Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="" onscroll="scrollFunction()">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav add-padding">
+              <a href="index.html" class="navbar-brand"
+                ><img
+                  class="covid-logo"
+                  src="assets/img/logo.png"
+                  alt=""
+                /><span>Covid 19 Tracker</span></a
+              >
+              <div onclick="toggleNav()" class="menu">Menu</div>
+              <ul class="navbar-list" id="myLinks">
+                <li><a href="index.html" > Home</a></li>
+                <li><a href="all-country-data.html" class="active">All Country Data</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="main">
+      <section class="section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 sticky-row-scroll">
+              <div class="last-updated-date mobile-show" id="last-updated-date-mobile"></div>
+              <div class="border-bottom filtering-row align-items-center">
+                <div class="select-options">
+                  <select
+                    name=""
+                    id="newCases"
+                    onchange="getAllCountriesData()"
+                  >
+                    <option value="all">All Countries</option>
+                  </select>
+                </div>
+
+                <div class="sorting-options">
+                  <select
+                    name=""
+                    id="sorting-options"
+                    onchange="sortingOptions()"
+                  >
+                    <option value="default" disabled selected>Sort By</option>
+                    <option value="topCases">Total Cases</option>
+                    <option value="topDeaths">Total Deaths</option>
+                    <option value="topRecovered">Top Recovered</option>
+                    <option value="topNewConfirmed">New Confirmed</option>
+                  </select>
+                </div>
+
+                <div class="last-updated-date mobile-hidden" id="last-updated-date"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row" id="countryData"></div>
+        </div>
+      </section>
+    </div>
+    <script src="assets/js/main.js"></script>
+    <script>
+      // Api Call to get data
+
+      async function getCountriesDataApi(countries) {
+        const response = await fetch(countries, apiConfig);
+        var dataC = await response.json();
+        allCountriesData = dataC.Countries;
+
+        document.getElementById("last-updated-date").innerHTML =
+          "Updated: " + allCountriesData[0].Date.split("T")[0];
+          document.getElementById("last-updated-date-mobile").innerHTML =
+          "Updated: " + allCountriesData[0].Date.split("T")[0];
+        countryLayout(allCountriesData);
+        sortingOptions(dataC.Countries);
+        allCountriesList(dataC.Countries);
+      }
+      getCountriesDataApi(byCountryUrl);
+      // to make filtering-row fixed on scroll
+
+      window.onscroll = function () {
+        if (document.body.scrollTop > 150) {
+          document.querySelector(".sticky-row-scroll").classList.add("sticky");
+        } else {
+          document
+            .querySelector(".sticky-row-scroll")
+            .classList.remove("sticky");
+        }
+      };
+    </script>
+  </body>
+</html>

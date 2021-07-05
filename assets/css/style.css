@@ -1,0 +1,634 @@
+* {
+  outline: none;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  line-height: 1.75;
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f8fc;
+}
+a,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #222;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0rem;
+  font-weight: 600;
+}
+select:not([multiple]) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-repeat: no-repeat;
+  background: #ffffff no-repeat right top url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+  padding: 10px;
+  /* padding-right: 1.5em; */
+  background-position: right;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px 0 rgb(20 50 90 / 5%);
+  /* background: #fff; */
+  transition: all 0.5s;
+  border: 2px solid transparent;
+  min-width: 150px;
+}
+.mobile-show{
+  display: none;
+}
+.border-bottom,
+.country-list-inner-top {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.align-items-center {
+  align-items: center;
+}
+header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+  position: relative;
+}
+.container,
+.sticky .filtering-row {
+  max-width: 1140px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  align-items: center;
+  padding: 15px 0;
+  max-width: 1120px;
+}
+.covid-logo {
+  max-width: 35px;
+}
+a.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.navbar-brand span {
+  font-weight: 700;
+  margin-left: 20px;
+  font-size: 24px;
+}
+.navbar-list,
+.country-list-inner-top {
+  display: flex;
+}
+.navbar-list li:not(:last-child) {
+  margin-right: 15px;
+}
+.main {
+  margin-top: 30px;
+}
+.row {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-right: -15px;
+    margin-left: -15px; */
+}
+.col-6,
+.col-12,
+.col-8,
+.col-5,
+.col-4,
+.col-3 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-3,
+div.list-block {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.col-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+.col-5 {
+  flex: 0 0 41.66666667%;
+  max-width: 41.66666667%;
+}
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.col-7 {
+  flex: 0 0 58.33333333%;
+  max-width: 58.33333333%;
+}
+.col-8 {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.section-padding {
+  margin-bottom: 30px;
+}
+.section-padding:first-child {
+  padding-bottom: 30px;
+}
+.pie-data,
+.covid-world-block,
+.country-list-inner .country-list-inner-top,
+.country-list-inner .country-list-inner-bottom {
+  padding: 20px;
+}
+
+.pie-data,
+.covid-world-block,
+.top-countries-list,
+.country-list-inner {
+  border-radius: 5px;
+  box-shadow: 0 15px 30px 0 rgb(20 50 90 / 5%);
+  background: #fff;
+  transition: all 0.5s;
+  border: 2px solid transparent;
+}
+.covid-world-block,
+.top-countries-list {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.country-list-inner {
+  margin-bottom: 20px;
+}
+
+.covid-world-block:hover,
+.country-list-inner:hover {
+  transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -o-transform: translateY(-5px);
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  left: 0;
+  right: 0;
+  padding: 20px 30px;
+  background-color: #fff;
+  box-shadow: 0 15px 30px 0 rgb(20 50 90 / 5%);
+}
+
+.col-6:nth-child(1) .covid-world-block:hover {
+  border-color: #3398fb;
+}
+.col-6:nth-child(2) .covid-world-block:hover {
+  border-color: #f5365c;
+}
+.col-6:nth-child(3) .covid-world-block:hover {
+  border-color: #23bdb8;
+}
+.col-6:nth-child(4) .covid-world-block:hover {
+  border-color: #ffbf31;
+}
+.col-6:nth-child(5) .covid-world-block:hover {
+  border-color: #942c14;
+}
+.col-6:nth-child(6) .covid-world-block:hover {
+  border-color: #9a56ff;
+}
+
+.country-list-inner:hover {
+  border-color: #222;
+}
+
+.icon {
+  width: 4rem;
+  height: 4rem;
+  max-width: 100%;
+  flex: 0 0 auto;
+  margin-right: 15px;
+  display: inline-flex;
+  padding: 7px;
+  text-align: center;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.icon i,
+.icon svg {
+  font-size: 25px;
+  color: #fff;
+}
+.covid-world-block {
+  height: 130px;
+}
+.covid-world-block div:nth-child(2),
+.top-countries-info {
+  width: 100%;
+}
+.country-statistics h4:first-child {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.top-countries-list {
+  padding: 20px 15px;
+}
+li.top-countries-list:hover {
+  transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+.top-countries-info {
+  margin-left: 12px;
+}
+img.country-flag {
+  border-radius: 5px;
+  width: 38px;
+  height: 28px;
+}
+.covid-world-block h5,
+.top-countries-info h6 {
+  color: #aeaed5;
+  margin-bottom: 8px;
+  font-weight: normal;
+  border-bottom: 1px solid #d4d4d4;
+  padding-bottom: 8px;
+}
+.covid-world-block h5 {
+  font-size: 15px;
+}
+.top-countries-info h6,
+div.list-block span {
+  font-size: 13px;
+}
+.covid-world-block h2 {
+  margin-bottom: 0px;
+  font-size: 24px;
+}
+
+.filtering-row {
+  padding-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.sticky .filtering-row {
+  border: none;
+  padding-bottom: 0;
+  padding: 0 10px;
+}
+
+.sticky-row-scroll {
+  transition: all 0.2s ease;
+}
+
+div#countryData {
+  margin-top: 30px;
+}
+.country-list-inner-top span {
+  margin-left: 10px;
+  font-weight: 600;
+}
+.country-list-inner-bottom {
+  display: flex;
+  flex-wrap: wrap;
+}
+div.list-block:not(:last-child) {
+  margin-right: 20px;
+}
+div.list-block span {
+  margin-bottom: 8px;
+  display: inline-block;
+  white-space: nowrap;
+  color: #aeaed5;
+}
+div.list-block:not(:nth-last-child(-n + 3)) {
+  margin-bottom: 15px;
+}
+.last-updated-date {
+  font-weight: 600;
+}
+.sorting-options span {
+  margin-right: 10px;
+}
+.add-padding {
+  padding: 15px 15px;
+}
+.menu {
+  display: none;
+}
+.navbar-brand span{
+  text-transform: uppercase;
+}
+.navbar-list li a {
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  color: #aeaed5;
+}
+.navbar-list li a:hover,
+.navbar-list li a.active {
+  border-bottom: 1px solid #222;
+  font-weight: 600;
+  color: #222;
+}
+
+.border-bottom.filtering-row.align-items-center {
+  max-width: 1120px;
+}
+
+.sticky-row-scroll.sticky .mobile-show,.sticky-row-scroll.sticky .mobile-hidden{
+  display: none;
+}
+
+.sticky-row-scroll.sticky .select-options,.sticky-row-scroll.sticky .sorting-options{
+  width: 100%;
+  flex: 0 0 48%;
+}
+.sticky-row-scroll.sticky  select:not([multiple]){
+  width: 100%;
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media screen and (max-width: 1199.98px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .country-list-inner-bottom {
+    justify-content: space-between;
+  }
+
+  div.list-block {
+    flex: 0 0 44%;
+    max-width: 50%;
+  }
+  div.list-block:not(:last-child) {
+    margin-right: 0;
+  }
+  .covid-world-block {
+    height: 105px;
+  }
+  .icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  .icon i,
+  .icon svg {
+    font-size: 20px;
+  }
+  .top-countries-list {
+    height: 90px;
+  }
+  .top-countries-info h4 {
+    font-size: 15px;
+  }
+}
+/* Small devices (landscape phones, less than 768px) */
+@media screen and (max-width: 767.98px) {
+  .col-7,
+  .col-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .pie-data {
+    width: 50%;
+    margin: auto;
+  }
+  .col-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .navbar-list li a{
+    font-size: 15px;
+  }
+  .navbar-brand span {
+    font-size: 17px;
+    margin-left: 15px;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 640px) */
+
+@media screen and (max-width: 639.98px) {
+  .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .covid-world-block h2{
+    font-size: 20px;
+  }
+
+  .select-options, .sorting-options{
+    width: 100%;
+    flex: 0 0 48%;
+  }
+
+  select:not([multiple]){
+    width: 100%;
+  }
+
+  .country-list,
+  .col-12,
+  .col-8,
+  .col-5,
+  .col-4,
+  .col-7 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  div.list-block {
+    flex: 0 0 30%;
+    max-width: 50%;
+  }
+  .last-updated-date {
+    display: none;
+  }
+  .mobile-show{
+    display: block;
+    margin-bottom: 15px;
+  }
+  .mobile-hidden{
+    display: none;
+  }
+
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+  .col-6,
+  .col-12,
+  .col-8,
+  .col-5,
+  .col-4,
+  .col-3 {
+    padding: 0;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .col-6,
+  .col-3 {
+    flex: 0 0 48%;
+    max-width: 50%;
+  }
+
+  .country-list,
+  .col-12,
+  .col-8,
+  .col-5,
+  .col-4,
+  .col-7 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .sticky {
+    padding: 20px 15px !important;
+  }
+  .sorting-options span {
+    font-size: 12px;
+  }
+  .pie-data {
+    width: 100%;
+  }
+  
+  
+}
+
+@media screen and (max-width: 500.98px) {
+  .menu {
+    display: block;
+    font-weight: bold;
+  }
+  .container-fluid {
+    padding: 0;
+  }
+  .country-list,
+  .col-12,
+  .col-8,
+  .col-5,
+  .col-4,
+  .col-6,
+  .col-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  div.list-block {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .top-countries-info h6, div.list-block span{
+    font-size: 15px;
+  }
+ 
+  .add-padding{
+    padding: 15px 30px;
+  }
+  
+
+  #myLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: white;
+    width: 100%;
+    padding: 20px 30px;
+    z-index: 10;
+    margin: 0;
+    left: 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 15px 30px 0 rgb(20 50 90 / 5%);
+  }
+  .navbar-list li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .navbar-list li a,.navbar-brand span {
+    color: #222;
+  }
+  
+  select:not([multiple]){
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375.98px) {
+  div.list-block{
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .sticky-row-scroll.sticky .select-options, .sticky-row-scroll.sticky .sorting-options {
+    width: 100%;
+    flex: 0 0 100%;
+}
+  .select-options, .sorting-options{
+    width: 100%;
+    flex: 0 0 100%;
+  }
+  .select-options{
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+}

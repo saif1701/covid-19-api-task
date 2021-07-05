@@ -1,0 +1,219 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid 19 Tracker</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="" onscroll="scrollFunction()">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav add-padding">
+              <a href="index.html" class="navbar-brand"
+                ><img
+                  class="covid-logo"
+                  src="assets/img/logo.png"
+                  alt=""
+                /><span>Covid 19 Tracker</span></a
+              >
+              <div onclick="toggleNav()" class="menu">Menu</div>
+              <ul class="navbar-list" id="myLinks">
+                <li><a href="index.html" class="active"> Home</a></li>
+                <li><a href="all-country-data.html">All Country Data</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="main">
+      <section class="section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-7">
+              <div class="row justify-between">
+                <div class="col-6">
+                  <div class="covid-world-block">
+                    <div
+                      class="icon icon-bg-1"
+                      style="background-color: #3398fb"
+                    >
+                      <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                      <h5>Total Cases</h5>
+                      <h2 id="total-cases"></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="covid-world-block">
+                    <div
+                      class="icon icon-bg-2"
+                      style="background-color: #f5365c"
+                    >
+                      <i class="fas fa-procedures"></i>
+                    </div>
+                    <div>
+                      <h5>Total Deaths</h5>
+                      <h2 id="total-deaths"></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="covid-world-block">
+                    <div
+                      class="icon icon-bg-3"
+                      style="background-color: #23bdb8"
+                    >
+                      <i class="fas fa-child"></i>
+                    </div>
+                    <div>
+                      <h5>Total Recovered</h5>
+                      <h2 id="total-recovered"></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="covid-world-block">
+                    <div
+                      class="icon icon-bg-4"
+                      style="background-color: #ffbf31"
+                    >
+                      <i class="fas fa-bell"></i>
+                    </div>
+                    <div>
+                      <h5>New Confirmed</h5>
+                      <h2 id="total-confirmed"></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="covid-world-block">
+                    <div
+                      class="icon icon-bg-5"
+                      style="background-color: #942c14"
+                    >
+                      <i class="fas fa-bed"></i>
+                    </div>
+                    <div>
+                      <h5>New Deaths</h5>
+                      <h2 id="total-NewDeaths"></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="covid-world-block">
+                    <div
+                      class="icon icon-bg-6"
+                      style="background-color: #9a56ff"
+                    >
+                      <i class="fas fa-medkit"></i>
+                    </div>
+                    <div>
+                      <h5>Helpline</h5>
+                      <h2>999</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5">
+              <div class="pie-data">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-padding">
+        <div class="container">
+          <div class="row align-items-center justify-between">
+            <div class="col-3">
+              <div class="country-statistics">
+                <h4>Top Cases</h4>
+                <ul id="top-cases"></ul>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="country-statistics">
+                <h4>Top Deaths</h4>
+                <ul id="top-deaths"></ul>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="country-statistics">
+                <h4>Top Recovered</h4>
+                <ul id="top-recovered"></ul>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="country-statistics">
+                <h4>New Cases</h4>
+                <ul id="new-cases"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      // Defining async function
+      async function getAllData(url) {
+        // Storing response
+        const response = await fetch(url, apiConfig);
+
+        // Storing data in form of JSON
+        var data = await response.json();
+
+        //
+
+        document.getElementById("total-cases").innerHTML =
+          data.Global.TotalConfirmed.toLocaleString("en-US");
+        document.getElementById("total-deaths").innerHTML =
+          data.Global.TotalDeaths.toLocaleString("en-US");
+        document.getElementById("total-recovered").innerHTML =
+          data.Global.TotalRecovered.toLocaleString("en-US");
+        document.getElementById("total-NewDeaths").innerHTML =
+          data.Global.NewDeaths.toLocaleString("en-US");
+        document.getElementById("total-confirmed").innerHTML =
+          data.Global.NewConfirmed.toLocaleString("en-US");
+
+        // PIE CHART DATA
+
+        globalData = [
+          data.Global.TotalConfirmed,
+          data.Global.TotalDeaths,
+          data.Global.TotalRecovered,
+        ];
+
+        pieChartData(globalData);
+
+        // TOP 10 DATA
+
+        allCountriesTopData = data.Countries;
+        sortCases("topCases");
+        sortCases("topDeaths");
+        sortCases("topRecovered");
+        sortCases("topNewConfirmed");
+      }
+      // Calling that async function
+      getAllData(byCountryUrl);
+    </script>
+  </body>
+</html>
